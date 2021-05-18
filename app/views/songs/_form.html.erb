@@ -1,4 +1,9 @@
 <%= form_for @song  do |f| %>
+  <% if !@song.artist %>
+    <%= f.select song[:artist_id], options_for_collection_for_select(Author.all, :id, :name)%>
+    <% else %>
+      <%= f.hidden_field :artist_id  %>
+  <% end %>
   <%= f.label :title %>
   <%= f.text_field :title %><br>
   <%= f.label :artist_name %>
