@@ -1,6 +1,6 @@
 <%= form_for @song  do |f| %>
   <% if !@song.artist %>
-    <%= f.select song[:artist_id], options_for_collection_for_select(Author.all, :id, :name)%>
+    <%= f.select :artist_id, options_from_collection_for_select(Artist.all, :id, :name)%>
     <% else %>
       <%= f.hidden_field :artist_id  %>
   <% end %>
